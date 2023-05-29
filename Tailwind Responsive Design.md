@@ -1,4 +1,3 @@
-import { Heading } from '@/components/Heading'
 ## Overview
 
 Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
