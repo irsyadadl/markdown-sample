@@ -40,33 +40,34 @@ Here's a simple example of a marketing page component that uses a stacked layout
 
 ## Tab
 This how you implement the tab inside this blog.
-```html tab=index.html
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden **md:max-w-2xl**">
-  <div class="**md:flex**">
-    <div class="**md:shrink-0**">
-      <img class="h-48 w-full object-cover **md:h-full md:w-48**" src="/img/building.jpg" alt="Modern building architecture">
-    </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Tab Index</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accomodation for your team</a>
-      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
-    </div>
-  </div>
-</div>
+```php tab=UsersController.php
+class UsersController
+{
+    public function index()
+    {
+        $users = User::active()
+            ->orderByName()
+            ->get(['id', 'name', 'email']);
+
+        return Inertia::render('Users', [
+            'users' => $users
+        ]);
+    }
+}
 ```
-```html tab=about.html
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden **md:max-w-2xl**">
-  <div class="**md:flex**">
-    <div class="**md:shrink-0**">
-      <img class="h-48 w-full object-cover **md:h-full md:w-48**" src="/img/building.jpg" alt="Modern building architecture">
-    </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Tab About</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accomodation for your team</a>
-      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
-    </div>
-  </div>
-</div>
+```jsx tab=app.jsx
+import { createInertiaApp } from '@inertiajs/react'
+import { createRoot } from 'react-dom/client'
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
+    return pages[`./Pages/${name}.jsx`]
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(<App {...props} />)
+  },
+})
 ```
 
 Here's how the example above works:
