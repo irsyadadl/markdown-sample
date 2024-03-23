@@ -10,7 +10,7 @@ laravel new blog
 Tentu tidak ada perbedaan dari kedua project tersebut. Namun, ada beberapa developer yang tidak mempunyai laravel cli nya. Jadi makanya saya menunjukkan dari sisi keduanya.
 
 Jika Anda tidak mengerti bagaimana cara menginstall nya, bisa lihat video berikut:
-[](https://youtu.be/nLadTJKGX1k)
+[]([https://youtu.be/nLadTJKGX1k](https://youtu.be/sVNFrxLW2pA)
 
 ### Laravel Breeze
 Setelah itu, silakan lakukan instalasi [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits) dengan menjalankan perintah berikut:
